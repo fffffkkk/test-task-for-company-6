@@ -3,9 +3,7 @@ ol {
 	list-style: none;
 }
 
-a:active,
-a:hover,
 a {
-	text-decoration: none;
-	color: #39414b;
+	color: inherit;
+	text-decoration: inherit;
 }

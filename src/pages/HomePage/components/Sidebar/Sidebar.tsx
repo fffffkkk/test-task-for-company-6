@@ -1,10 +1,21 @@
-import { Link } from '@tanstack/react-router';
+import { useEffect } from 'react';
+import { Link, useNavigate } from '@tanstack/react-router';
 
 import styles from './Sidebar.module.scss';
 
 import type { SidebarProps } from './types';
 
 export const Sidebar = ({ tags }: SidebarProps) => {
+	const navigation = useNavigate();
+
+	useEffect(() => {
+		navigation({
+			search: {
+				tags: 'all',
+			},
+		});
+	}, []);
+
 	return (
 		<div className={styles.wrapper}>
 			<nav className={styles.sidebar}>
@@ -23,7 +34,7 @@ export const Sidebar = ({ tags }: SidebarProps) => {
 					</li>
 
 					{tags.map((tag) => (
-						<li className={styles.nav__item}>
+						<li key={tag} className={styles.nav__item}>
 							<Link
 								activeProps={{
 									className: styles.nav__item_active,

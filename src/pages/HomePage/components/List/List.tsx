@@ -16,8 +16,8 @@ export const List = ({ courses }: ListProps) => {
 
 	return (
 		<ul className={styles.courses}>
-			{filteredCoursesByTags.map((course) => (
-				<ListItem {...course} />
+			{filteredCoursesByTags.map(({ id, ...course }) => (
+				<ListItem key={id} id={id} {...course} />
 			))}
 		</ul>
 	);

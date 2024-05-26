@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { List, Sidebar } from './components';
 
 import styles from './HomePage.module.scss';
@@ -15,7 +15,9 @@ export const HomePage = () => {
 			.then((data) => setCourses(data.data));
 	}, []);
 
-	const tagsSet = new Set(courses?.flatMap(({ tags }) => tags));
+	const tagsSet = useMemo(() => {
+		return new Set(courses?.flatMap(({ tags }) => tags));
+	}, [courses]);
 
 	return (
 		<div className={styles.wrapper}>
