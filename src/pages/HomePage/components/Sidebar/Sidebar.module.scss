@@ -1,0 +1,31 @@
+@import '@/styles/vars';
+
+.wrapper {
+	width: $sidebar-width;
+}
+
+.sidebar {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: $sidebar-width;
+	border-radius: $border-radius;
+	border: 1px solid $gray-color;
+}
+
+.nav {
+	padding: 12px;
+
+	&__item {
+		& > a {
+			display: inline-block;
+			width: 100%;
+			padding: 12px 0 12px 12px;
+			border-radius: 12px;
+		}
+		&_active {
+			color: #fff;
+			background-color: $green-color;
+		}
+	}
+}

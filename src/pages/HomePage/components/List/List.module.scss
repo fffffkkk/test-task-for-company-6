@@ -1,0 +1,8 @@
+@import '@/styles/vars';
+
+.courses {
+	width: calc(100% - $sidebar-width);
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 18px;
+}
